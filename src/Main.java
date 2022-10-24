@@ -1,10 +1,21 @@
+import java.util.Locale;
+
 public class Main {
     public static void main(String[] args) {
-        String[] temp = {"b", "1","2","3", "3", "1", "1"};
-        Meal meal = new Meal();
-        meal.changeOffering(1,"Eggs");
-        meal.changeOffering(2,"Toast");
-        meal.changeOffering(3,"Coffee");
+        String[] temp = {"Dinner","2","1","3","1","1","3","4"};
+        Meal meal;
+        String mealType = temp[0].toLowerCase();
+        if (mealType.equals("breakfast")) {
+            meal = new Breakfast();
+        } else if (mealType.equals("lunch")) {
+            meal = new Lunch();
+        } else if (mealType.equals("dinner")) {
+            meal = new Dinner();
+        } else {
+            System.out.println("Meal has to be a Breakfast, Lunch, or Dinner");
+            return;
+        }
+
 
         int len = temp.length-1;
         int[] orders = new int[len];
