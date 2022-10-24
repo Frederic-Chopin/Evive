@@ -11,7 +11,7 @@ The meal class is the super class, which has common attributes and methods for a
 Breakfast, Lunch, and Dinner are children class, which inherits Meal but have some unique attributes. 
 They override some methods in Meal. 
 
-###Results
+### Results
 - All functions in the design doc are implemented
 - All rules are followed
 - A total of 31 Junit tests are provided, covering every requirement in the design doc and some additional once.
@@ -59,7 +59,7 @@ After Java is installed, get the code from https://github.com/Frederic-Chopin/Ev
    ```sh
    java Main breakfast 1 2 3
    ```
-###Input
+### Input
 - Inputs can be provided along with java Main, or can be provided in the next line. 
   Follow the steps below to provide the input:
   1. Input a meal type, Breakfast, Lunch, or Dinner (case-insensitive). 
@@ -77,7 +77,7 @@ After Java is installed, get the code from https://github.com/Frederic-Chopin/Ev
 
 ## Code Details
 
-###Components
+### Components
 - meal 
   - src
     - main/java
@@ -90,7 +90,7 @@ After Java is installed, get the code from https://github.com/Frederic-Chopin/Ev
       - regular.java: 10 Junit tests, targeting all functioning requirements
       - exceptions.java: 21 Junit tests, targeting all exceptional cases
 
-###Rules
+### Rules
 - An order consists of a meal and collection of comma separated item Ids
 - The system should return the name of the items ordered
 - The system should always return items in the following order: meal, side, drink
@@ -103,7 +103,7 @@ After Java is installed, get the code from https://github.com/Frederic-Chopin/Ev
 - At dinner, water is always provided
 
 
-###Sample inputs and outputs
+### Sample inputs and outputs
 - breakfast 3 --> Unable to process: Main is missing, side is missing
 - breakfast 2, 3 --> Unable to process: Main is missing
 - breakfast 1, 3 --> Unable to process: Side is missing
