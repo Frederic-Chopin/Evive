@@ -1,13 +1,21 @@
 # Evive Meal Ordering System
 
-
 ## About The Project
+This system takes in meal order for breakfast, lunch, or dinner, 
+and takes in the order number 1 to 3 for breakfast and lunch, 1 to 4 for dinner.
+It returns the dishes ordered. 
 
+### Design Idea
+This project uses Java Object-Oriented Programming design principle, and exploits the inheritance hierarchical structure. 
+The meal class is the super class, which has common attributes and methods for all 3 meals.
+Breakfast, Lunch, and Dinner are children class, which inherits Meal but have some unique attributes. 
+They override some methods in Meal. 
 
-
-### Built With
-
-
+###Results
+- All functions in the design doc are implemented
+- All rules are followed
+- A total of 31 Junit tests are provided, covering every requirement in the design doc and some additional once.
+- Some additional features are added. For instance, the program can run repeatedly by selecting "y"
 
 
 ## Getting Started
@@ -68,22 +76,19 @@ After Java is installed, get the code from https://github.com/Frederic-Chopin/Ev
 
 
 ## Code Details
-###Design Idea
-
-    
-    
-    
 
 ###Components
-- src
-    - Meal.java
-    - Breakfast.java
-    - Lunch.java
-    - Dinner.java
-    - Main.java
-- test
-    - regular.java
-    - exceptions.java
+- meal 
+  - src
+    - main/java
+      - Meal.java: The superclass, provides common functions and features
+      - Breakfast.java: child class, implements Meal in more detail
+      - Lunch.java: child class, implements Meal in more detail
+      - Dinner.java: child class, implements Meal in more detail
+      - Main.java: driver function, parses in and processes input, creates Meal object
+    - test
+      - regular.java: 10 Junit tests, targeting all functioning requirements
+      - exceptions.java: 21 Junit tests, targeting all exceptional cases
 
 ###Rules
 - An order consists of a meal and collection of comma separated item Ids
@@ -112,5 +117,5 @@ After Java is installed, get the code from https://github.com/Frederic-Chopin/Ev
 
 
 ## Acknowledgments
-This project is intended for a take home assignment for Evive.
+This project is intended for and only for a take home assignment for Evive.
 Visit their website www.goevive.com for more information. 
