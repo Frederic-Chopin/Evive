@@ -7,7 +7,10 @@ public class Main {
         Scanner scan = new Scanner(System.in);
 
         while (true) {
-            System.out.println("Input meal orders. e.g. Breakfast 1,2,3");
+            //Not Junit test
+            if (args.length!=3) {
+                System.out.println("Input meal orders. e.g. Breakfast 1,2,3");
+            }
             String mealType;
             Meal meal;
 
@@ -58,6 +61,10 @@ public class Main {
 
             System.out.println(meal.takeOrder(orders));
 
+            //For Junit Test
+            if (args.length==3 && args[2]=="n") {
+                return;
+            }
 
             //Continue adding meals
             System.out.println("Continue? (y/n)");
@@ -74,4 +81,5 @@ public class Main {
             args = new String[0];
         }
     }
+
 }
