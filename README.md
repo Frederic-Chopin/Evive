@@ -14,40 +14,103 @@
 
 
 
-### Prerequisites
+### Prerequisites: Java
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
+Make sure java is installed. If not, please download the latest version of Java here:
+- Download Java
+  ```sh
+  https://www.oracle.com/java/technologies/downloads/
   ```
-  npm install npm@latest -g
+- Install Java based on instructions here
+  ```sh
+  https://www.java.com/en/download/help/download_options.html
   ```
 
-### Installation
+### Getting the code
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+After Java is installed, get the code from https://github.com/Frederic-Chopin/Evive
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Open a local terminal and clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/Frederic-Chopin/Evive.git
    ```
-3. Install NPM packages
+2. Go to src folder
    ```sh
-   npm install
+   cd src
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+3. Compile the Java program
+   ```sh
+   javac Main.java
    ```
+4. Execute the program
+    ```sh
+   java Main 
+   #Provide input in the next line
+   ```
+   or 
+   ```sh
+   java Main breakfast 1 2 3
+   ```
+###Input
+- Inputs can be provided along with java Main, or can be provided in the next line. 
+  Follow the steps below to provide the input:
+  1. Input a meal type, Breakfast, Lunch, or Dinner (case-insensitive). 
+  2. Enter integer from 1 to 3 for Breakfast and Lunch, 1 to 4 for Dinner, 
+  separated by comma.
+    - e.g. Breakfast 1, 2, 3 
+    - Lunch 3, 2, 1, 2
+    - Dinner 1, 3, 4, 4, 2
+  3. The program will output the ordering
+  4. A prompt will appear, enter y to continue, n to quit
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
-## Design Idea
 
+## Code Details
+###Design Idea
+
+    
+    
+    
+
+###Components
+- src
+    - Meal.java
+    - Breakfast.java
+    - Lunch.java
+    - Dinner.java
+    - Main.java
+- test
+    - regular.java
+    - exceptions.java
+
+###Rules
+- An order consists of a meal and collection of comma separated item Ids
+- The system should return the name of the items ordered
+- The system should always return items in the following order: meal, side, drink
+- If multiple items are ordered, the number of items should be indicated
+- Each meal must contain a main and a side
+- If no drink is ordered, water is returned as a default
+- At breakfast, multiple cups of coffee can be ordered
+- At lunch, multiple sides can be ordered
+- At dinner, dessert must be ordered
+- At dinner, water is always provided
+
+
+###Sample inputs and outputs
+- breakfast 3 --> Unable to process: Main is missing, side is missing
+- breakfast 2, 3 --> Unable to process: Main is missing
+- breakfast 1, 3 --> Unable to process: Side is missing
+- breakfast 1, 2, 3 --> Eggs, Toast, Coffee
+- Breakfast 3, 3, 1, 2 --> Eggs, Toast, Coffee(2)
+- LUNCH 2, 3, 2, 2 --> Sandwich, Chips(3), Soda
+- dinner 1, 3, 2, 1 -->  Unable to process: Dessert is missing
+- dinner 4, 4, 3, 2, 1 --> Steak, Potatoes, Wine, Water, Cake(2)
+- Dinner 1, 1, 2, 3, 4 --> Steak cannot be ordered more than once
+- dinner 1, 2, 3, 4, 5 --> Please enter number in the range 1 ~ 4
 
 
 ## Acknowledgments
 This project is intended for a take home assignment for Evive.
-Visit their website www.goevive.com/ for more information. 
+Visit their website www.goevive.com for more information. 

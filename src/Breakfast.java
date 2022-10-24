@@ -6,4 +6,16 @@ public class Breakfast extends Meal{
         this.changeOffering(3,"Coffee");
     }
 
+    // At breakfast, multiple cups of coffee can be ordered
+    @Override
+    public boolean multipleMealViolation() {
+        if (orders[0] > 1) {
+            System.out.println("Eggs cannot be ordered more than once");
+            return true;
+        } else if (orders[1] > 1) {
+            System.out.println("Side cannot be ordered more than once");
+            return true;
+        }
+        return false;
+    }
 }

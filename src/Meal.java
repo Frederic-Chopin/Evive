@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Meal {
     protected String[] offering;
     protected int[] orders;
@@ -10,7 +12,7 @@ public class Meal {
         this.offering[2] = "Water";
     }
 
-    public void takeOrder(int[] orders) {
+    public String takeOrder(ArrayList<Integer> orders) {
         for (int order : orders) {
             try {
                 this.orders[order - 1] += 1;
@@ -18,25 +20,47 @@ public class Meal {
                 System.out.println("Please enter number in the range 1 ~ " + getTotDish());
             }
         }
+        if (missingDish()) return "";
+        if (multipleMealViolation()) return "";
+        return output();
+    }
+
+    // Check if main and side are present
+    public boolean missingDish() {
+        String message;
+        if (orders[0] == 0 && orders[1] == 0){
+            System.out.println("Unable to process: Main is missing, side is missing");
+            return true;
+        } else if (orders[0] == 0) {
+            System.out.println("Unable to process: Main is missing");
+            return true;
+        } else if (orders[1] == 0) {
+            System.out.println("Unable to process: Side is missing");
+            return true;
+        }
+        return false;
+    }
+
+    //Check multiple order requirement
+    //Overridden by children
+    public boolean multipleMealViolation() {
+        return false;
     }
 
     public String output() {
         String message = new String();
-        if (orders[0] == 0 && orders[1] == 0){
-            message = "Unable to process: Main is missing, side is missing";
-        } else if (orders[0] == 0) {
-            message = "Unable to process: Main is missing";
-        } else if (orders[1] == 0) {
-            message = "Unable to process: Side is missing";
-        } else {
-            for (int i=0; i<totDish; i++) {
+        for (int i=0; i<totDish; i++) {
+            if (orders[i] >= 1) {
                 message += offering[i];
-                if (orders[i] > 1) {
-                    message += "(" + orders[i] + ")";
-                }
-                if (i < totDish-1) {
-                    message += ", ";
-                }
+            }
+            if (orders[i] > 1) {
+                message += "(" + orders[i] + ")";
+            }
+            if (i < totDish-1) {
+                message += ", ";
+            }
+            if (i==2 && orders[i] == 0) {
+                message += "Water";         //If no drink is ordered, water should be returned
             }
         }
         return message;
