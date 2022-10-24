@@ -10,7 +10,7 @@ public class Lunch extends Meal{
     @Override
     public boolean multipleMealViolation() {
         if (orders[0] > 1) {
-            System.out.println("Eggs cannot be ordered more than once");
+            System.out.println("Sandwich cannot be ordered more than once");
             return true;
         } else if (orders[2] > 1) {
             System.out.println("Soda cannot be ordered more than once");

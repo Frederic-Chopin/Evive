@@ -13,7 +13,7 @@ public class Breakfast extends Meal{
             System.out.println("Eggs cannot be ordered more than once");
             return true;
         } else if (orders[1] > 1) {
-            System.out.println("Side cannot be ordered more than once");
+            System.out.println("Toast cannot be ordered more than once");
             return true;
         }
         return false;

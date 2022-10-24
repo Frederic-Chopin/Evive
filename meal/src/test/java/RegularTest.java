@@ -52,6 +52,14 @@ public class RegularTest<SystemOutRule> {
     }
 
     @Test
+    public void testWaterBreakfast() {
+        String [] args = {"Breakfast","1,2", "n"};
+        Main main = new Main();
+        main.main(args);
+        assertEquals("Eggs, Toast, Water\r\n",  out.toString());
+    }
+
+    @Test
     public void testSimpleLunch() {
         String [] args = {"Lunch","1,2,3", "n"};
         Main main = new Main();
@@ -60,7 +68,7 @@ public class RegularTest<SystemOutRule> {
     }
 
     @Test
-    public void testSimpleLunch2() {
+    public void testWaterLunch() {
         String [] args = {"Lunch","1,2", "n"};
         Main main = new Main();
         main.main(args);
@@ -82,6 +90,7 @@ public class RegularTest<SystemOutRule> {
         main.main(args);
         assertEquals("Sandwich, Chips(2), Water\r\n",  out.toString());
     }
+
 
     @Test
     public void testSimpleDinner() {
