@@ -1,4 +1,8 @@
 # Evive Meal Ordering System
+- Update1: I've made some changes to the project, so download the project zip file at https://github.com/Frederic-Chopin/Evive
+for the latest version!
+- Update2: All provided tests are passes when input is provided via args. One tiny issue exists when input is provided via Stin, when there's no dish index.
+  More detailed explanation is provided in the Input section of Readme. 
 
 ## About The Project
 This system takes in meal order for breakfast, lunch, or dinner, 
@@ -71,7 +75,11 @@ After Java is installed, get the code from https://github.com/Frederic-Chopin/Ev
   3. The program will output the ordering
   4. A prompt will appear, enter y to continue, n to quit
 
-
+- Note: 
+  - When input is provided via stin, the program will keep running until a dish index is provided, because stin will be waiting for an input
+  - /So if only breakfast/lunch/dinner is provided, it will not finish
+  - This is a bug and I'll try to fix
+  - This problem does not exist when input is provided via args.
 
 
 

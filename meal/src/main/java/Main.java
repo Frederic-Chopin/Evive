@@ -35,8 +35,13 @@ public class Main {
 
             ArrayList<Integer> orders = new ArrayList<>();
             //take input from stin
+            //Note: program will keep running until a dish index is provided.
+            //So if only breakfast/lunch/dinner is provided, it will not finish
+            //This is a bug and I'll try to fix
+            //This problem does not exist when input is provided via args.
             if (args.length == 0 ) {
-                String[] indexes = scan.next().split(",");
+                String input = scan.next();
+                String[] indexes = input.split(",");
                 for (String i : indexes)
                     try {
                         int dish_index = Integer.parseInt(i);
@@ -46,15 +51,18 @@ public class Main {
                         return;
                     }
             } else {
-                String[] indexes = args[1].split(",");
-                for (int i = 0; i < indexes.length; i++) {
-                    try {
-                        int dish_index = Integer.parseInt(indexes[i]);
-                        orders.add(dish_index);
-                    } catch (Exception e) {
-                        System.out.println("Please input integers after the meal type");
-                        return;
+                try {
+                    String[] indexes = args[1].split(",");
+                    for (int i = 0; i < indexes.length; i++) {
+                        try {
+                            int dish_index = Integer.parseInt(indexes[i]);
+                            orders.add(dish_index);
+                        } catch (Exception e) {
+                            System.out.println("Please input integers after the meal type");
+                            return;
+                        }
                     }
+                } catch (Exception e) {
 
                 }
             }
